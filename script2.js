@@ -1,9 +1,9 @@
 // Global Variables
-var arraySplit = ""; // Used to translate input array back to the user as a string with slice
+var arraySplit = ""; // Used to translate an input array to the user as a string with slice
 var exitApplication = false; // on/off switch for running the app
-var userInput = ""; // Important - will be used to generate password based on criteria
-var finalPassword = ""; // Important - used as a variable to store temporatly a random passoword.
-var displayPassword = ""; // Impoprtant- used to display the final password on the text area of the HTML element.
+var userInput = ""; // will be used to generate password based on criteria
+var finalPassword = ""; // used as a variable to store a temporary random passoword.
+var displayPassword = ""; // display the final password on the text area of the HTML element.
 
 // Mutlidimensional object to use later for criteria and random generating strings.
 var pCriteria = {
@@ -21,12 +21,12 @@ var pCriteria = {
 var generatePassword = function() {
 
 
-   //initilaize all global variables
-   arraySplit = ""; // Used to translate input array back to the user as a string with slice
+   //initialize all global variables
+   arraySplit = ""; // translate input array back to the user as a string with slice
    exitApplication = false; // on/off switch for running the app
-   userInput = ""; // Important - will be used to generate password based on criteria
-   finalPassword = ""; // Important - used as a variable to store temporatly a random passoword.
-   displayPassword = ""; // Impoprtant- used to display the final password on the text area of the HTML element.
+   userInput = ""; // this will be used to generate password based on criteria
+   finalPassword = ""; // this is used as a variable to store a temp random passoword.
+   displayPassword = ""; // this will display the final password on the text area of the HTML element.
 
   // Alert user for criteria
   window.alert("The criteria for password generator are lowercase, uppercase, numeric, and/or special characters.");
@@ -75,7 +75,7 @@ var generatePassword = function() {
       }
     }
                                 
-    // Validate for duped entries by checking the userInput
+    // Validate for duplicate entries by checking the userInput
     var duplicatePassState = true;
     // Arrays, objects and functions are mutable ojbects so "copy" will reference and modify the original.
     // We need to "clone" it by creating an empty array and assigned the same values to our "cloned" array for validation.
@@ -86,12 +86,12 @@ var generatePassword = function() {
     var criteria4 = "";
     var validateInputArray = []
 
-    // Check first if only one input was proviced to avoid checking for duplicity of criteria numbers.
+    // Check first for one input was provided to avoid checking for duplicity of criteria numbers.
     if (userInput.length == 1) {
       duplicatePassState = false;
     }
 
-      // Check for duplicity of numbers and send the user back to the generatePassword(); function.
+      // Check for duplicate numbers and send the user back to the generatePassword(); function.
       while (duplicatePassState) {
 
         //Create array using values
@@ -281,9 +281,6 @@ function writePassword() {
     // Once we have achieved valid criteria input, we want to tell the user what length they want from 8-128 characters.
     // Call Function to validate length
     var pLength = passLenght();
-    // We are back from our passLength() function with success.
-    // We are now ready to gather our final pssword based on criteria and length.
-    // We then use our global variable displayPassword to store the output of our global finalPassword
     // We then pass the valid userInput and Length selected by user.
     displayPassword = generatePasswordRandomness(userInput,pLength);
 
